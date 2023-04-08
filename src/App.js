@@ -25,8 +25,9 @@ function App() {
           value={location}
           onChange={event => setLocation(event.target.value)}
           onKeyPress={searchLocation}
-          placeholder='Enter Location'
-          type="text" />
+          placeholder='場所を入力'
+          type="text"
+          className="jp" />
       </div>
       <div className="container">
         <div className="top">
@@ -43,17 +44,21 @@ function App() {
         
         {data.name !== undefined && 
         <div className="bottom">
+        <div className="temp_min">
+        {data.main ? <p className='bold'>{data.main.temp_min.toFixed()}°F</p> : null}
+          <p className="jp">最低</p>
+        </div>
         <div className="feels">
-        {data.main ? <p className='bold'>{data.main.feels_like.toFixed()}°F</p> : null}
-          <p>Feels like</p>
+        {data.main ? <p className='bold'>{data.main.temp_max.toFixed()}°F</p> : null}
+          <p className="jp">最大</p>
         </div>
         <div className="humidity">
         {data.main ? <p className='bold'>{data.main.humidity}%</p> : null}
-          <p>Humidity</p>
+          <p className="jp">湿度</p>
         </div>
         <div className="wind">
         {data.wind ? <p className='bold'>{data.wind.speed.toFixed()} MPH</p> : null}
-          <p>Winds</p>
+          <p className="jp">風速</p>
         </div>
       </div>}
         
